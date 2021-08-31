@@ -4,8 +4,15 @@ import {View, Text, Image, StatusBar, ScrollView} from 'react-native';
 import {ButtonIcon} from "../../components/ButtonIcon";
 import {styles} from "./styles";
 import IllustrationImg from '../../assets/illustration.png';
+import {useNavigation} from "@react-navigation/native";
 
 export function SignIn() {
+    const navigation = useNavigation();
+
+    function handleSignIn() {
+        navigation.navigate('Home');
+    }
+
     return (
         <ScrollView horizontal={false}>
             <View style={styles.container}>
@@ -31,7 +38,7 @@ export function SignIn() {
                 <View style={{marginHorizontal: 50, marginBottom: 50}}>
                     <ButtonIcon
                         title="Entrar com Discord"
-                        activeOpacity={0.8}
+                        onPress={handleSignIn}
                     />
                 </View>
             </View>
