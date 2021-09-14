@@ -9,6 +9,7 @@ import {Appointment} from "../../components/Appointment";
 import {ListDivider} from "../../components/ListDivider";
 
 import {styles} from "./styles";
+import {Background} from "../../components/Background";
 
 export function Home() {
     const [category, setCategory] = useState('');
@@ -45,7 +46,7 @@ export function Home() {
     }
 
     return (
-        <>
+        <Background>
             <View style={styles.header}>
                 <Profile/>
                 <ButtonAdd/>
@@ -72,6 +73,6 @@ export function Home() {
                     />
                 </View>
             </View>
-        </>
+        </Background>
     )
 }

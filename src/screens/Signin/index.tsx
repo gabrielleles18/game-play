@@ -1,10 +1,12 @@
 import React from 'react';
-import {View, Text, Image, StatusBar, ScrollView} from 'react-native';
+import {View, Text, Image} from 'react-native';
+import {useNavigation} from "@react-navigation/native";
 
 import {ButtonIcon} from "../../components/ButtonIcon";
-import {styles} from "./styles";
+import {Background} from "../../components/Background";
+
 import IllustrationImg from '../../assets/illustration.png';
-import {useNavigation} from "@react-navigation/native";
+import {styles} from "./styles";
 
 export function SignIn() {
     const navigation = useNavigation();
@@ -14,7 +16,7 @@ export function SignIn() {
     }
 
     return (
-        <ScrollView horizontal={false}>
+        <Background>
             <View style={styles.container}>
 
                 <Image
@@ -42,6 +44,6 @@ export function SignIn() {
                     />
                 </View>
             </View>
-        </ScrollView>
+        </Background>
     )
 }
