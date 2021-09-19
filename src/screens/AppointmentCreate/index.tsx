@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {KeyboardAvoidingView, Platform, ScrollView, Text, View} from "react-native";
+import {KeyboardAvoidingView, Modal, Platform, ScrollView, Text, View} from "react-native";
 import {RectButton} from "react-native-gesture-handler";
 import {Feather} from "@expo/vector-icons";
 
@@ -106,6 +106,7 @@ export function AppointmentCreate() {
                     </View>
                 </Background>
             </ScrollView>
+            <Modal/>
         </KeyboardAvoidingView>
     )
 }

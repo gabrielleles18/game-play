@@ -27,7 +27,7 @@ export function Home() {
             },
             category: '1',
             date: '22/06 ás 20:40h',
-            descripion: 'É hoje qye vamos chaegar ao challenger sem perder um partida da md10'
+            description: 'É hoje qye vamos chaegar ao challenger sem perder um partida da md10'
         },
         {
             id: '2',
@@ -39,7 +39,7 @@ export function Home() {
             },
             category: '1',
             date: '22/06 ás 20:40h',
-            descripion: 'É hoje qye vamos chaegar ao challenger sem perder um partida da md10'
+            description: 'É hoje qye vamos chaegar ao challenger sem perder um partida da md10'
         }
     ];
 
