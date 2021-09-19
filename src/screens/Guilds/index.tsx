@@ -1,16 +1,20 @@
 import React from "react";
 import {FlatList, View} from "react-native";
-
-import {styles} from "./styles";
-import {Guild} from "../../components/Guild";
+import {Guild, GuildProps} from "../../components/Guild";
 import {ListDivider} from "../../components/ListDivider";
 
-export function AppointmentDetails() {
+import {styles} from "./styles";
+
+type Props = {
+    handleGuildsSelect: (guild: GuildProps) => void
+}
+
+export function Guilds({handleGuildsSelect}: Props) {
     const guilds = [
         {
             id: '1',
             name: 'Lendários',
-            icon: null,
+            icon: 'image.png',
             owner: true
         }
     ];
@@ -21,10 +25,13 @@ export function AppointmentDetails() {
                 data={guilds}
                 keyExtractor={item => item.id}
                 renderItem={({item}) => (
-                    <Guild data={item}/>
+                    <Guild
+                        data={item}
+                        onPress={() => handleGuildsSelect(item)}
+                    />
                 )}
                 showsVerticalScrollIndicator={false}
-                ItemSeparatorComponent={ () => <ListDivider/>}
+                ItemSeparatorComponent={() => <ListDivider/>}
                 style={styles.guilds}
             />
         </View>
