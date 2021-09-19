@@ -51,7 +51,7 @@ export function Home() {
         navigation.navigate('AppointmentDetails');
     }
 
-    function handleAppointmentCreate(){
+    function handleAppointmentCreate() {
         navigation.navigate('AppointmentCreate');
     }
 
@@ -61,31 +61,28 @@ export function Home() {
                 <Profile/>
                 <ButtonAdd onPress={handleAppointmentCreate}/>
             </View>
-            <View>
-                <CategorySelect
-                    categorySelected={category}
-                    setCategory={handleCategorySelect}
-                />
-                <View style={styles.content}>
-                    <ListHeader
-                        title="Partidas agendadas"
-                        subTitle="Total 6"
+            <CategorySelect
+                categorySelected={category}
+                setCategory={handleCategorySelect}
+            />
+            <ListHeader
+                title="Partidas agendadas"
+                subTitle="Total 6"
+            />
+            <FlatList
+                data={appointments}
+                keyExtractor={item => item.id}
+                renderItem={({item}) => (
+                    <Appointment
+                        data={item}
+                        onPress={handleAppointmentDetails}
                     />
-                    <FlatList
-                        data={appointments}
-                        keyExtractor={item => item.id}
-                        renderItem={({item}) => (
-                            <Appointment
-                                data={item}
-                                onPress={handleAppointmentDetails}
-                            />
-                        )}
-                        ItemSeparatorComponent={() => <ListDivider/>}
-                        style={styles.matches}
-                        showsHorizontalScrollIndicator={false}
-                    />
-                </View>
-            </View>
+                )}
+                ItemSeparatorComponent={() => <ListDivider/>}
+                contentContainerStyle={{paddingBottom: 30}}
+                style={styles.matches}
+                showsHorizontalScrollIndicator={false}
+            />
         </Background>
     )
 }

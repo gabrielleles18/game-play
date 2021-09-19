@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {KeyboardAvoidingView, Modal, Platform, ScrollView, Text, View} from "react-native";
+import {KeyboardAvoidingView, Platform, ScrollView, Text, View} from "react-native";
 import {RectButton} from "react-native-gesture-handler";
 import {Feather} from "@expo/vector-icons";
 
@@ -26,9 +26,17 @@ export function AppointmentCreate() {
         setOpenGuildsModal(true);
     }
 
+    function handleCloseGuilds() {
+        setOpenGuildsModal(false);
+    }
+
     function handleGuildsSelect(guildSelect: GuildProps) {
         setGuild(guildSelect)
         setOpenGuildsModal(false);
+    }
+
+    function handleCategorySelect(categoryId: string) {
+        setCategory(categoryId);
     }
 
     return (
@@ -36,8 +44,8 @@ export function AppointmentCreate() {
             style={styles.container}
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         >
-            <ScrollView>
-                <Background>
+            <Background>
+                <ScrollView>
                     <Header
                         title="Agendar partida"
                     />
@@ -50,7 +58,7 @@ export function AppointmentCreate() {
 
                     <CategorySelect
                         hasCheckBox
-                        setCategory={setCategory}
+                        setCategory={handleCategorySelect}
                         categorySelected={category}
                     />
 
@@ -78,7 +86,7 @@ export function AppointmentCreate() {
                         </RectButton>
                         <View style={styles.field}>
                             <View>
-                                <Text style={styles.label}>
+                                <Text style={[styles.label, {marginBottom: 12}]}>
                                     Dia e mês
                                 </Text>
                                 <View style={styles.column}>
@@ -90,7 +98,7 @@ export function AppointmentCreate() {
                                 </View>
                             </View>
                             <View>
-                                <Text style={styles.label}>
+                                <Text style={[styles.label, {marginBottom: 12}]}>
                                     Hora e minuto
                                 </Text>
                                 <View style={styles.column}>
@@ -121,9 +129,9 @@ export function AppointmentCreate() {
                             <Button title='Agendar'/>
                         </View>
                     </View>
-                </Background>
-            </ScrollView>
-            <ModalView visible={openGuildsModal}>
+                </ScrollView>
+            </Background>
+            <ModalView visible={openGuildsModal} closeModal={handleCloseGuilds}>
                 <Guilds handleGuildsSelect={handleGuildsSelect}/>
             </ModalView>
         </KeyboardAvoidingView>
