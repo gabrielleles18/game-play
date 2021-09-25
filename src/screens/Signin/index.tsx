@@ -9,7 +9,7 @@ import IllustrationImg from '../../assets/illustration.png';
 import {styles} from "./styles";
 
 export function SignIn() {
-    const {user} = useAuth();
+    const {user, signIn} = useAuth();
 
     async function handleSignIn() {
         try {
